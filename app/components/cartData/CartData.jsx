@@ -34,7 +34,7 @@ export default function CartData() {
                 <p>$ 90</p>
               </div>
               <div className='text-center mt-8'>
-              <button className='bg-slate-950 text-white w-[30%] px-4 py-4'>CHECKOUT</button>
+              <button className='bg-slate-950 text-white w-[30%] px-2 md:px-4  py-1 md:py-2 text-sm md:text-base'>CHECKOUT</button>
               </div>
                 </div> 
                 }
