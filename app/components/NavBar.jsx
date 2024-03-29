@@ -51,7 +51,7 @@ export default function NavBar() {
                 <input className=" w-24 focus:outline-none" value={text} onChange={handleChange} type="text" />
                 <div className=" absolute top-8 left-4 w-48 "> 
                   {text && productData.map((product) => (
-                    <div className="" >
+                    <div key={product.id} className="" >
                       <Link href='/'><p>{product.name.toLocaleLowerCase().includes(text) ? (<p className=" flex text-sm justify-between items-center mt-2">{product.name} <button className=" border-2 border-black text-black px-1 py-1">Add To Cart</button></p>) : ''} </p></Link>
                     </div>
                       

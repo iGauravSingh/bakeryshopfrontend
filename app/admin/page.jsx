@@ -10,7 +10,7 @@ import Accounts from "./Accounts";
 
 
 
-const admin = () => {
+const Admin = () => {
 
   const [selectedPage, setSelectedPage] = useState('orders')
 
@@ -49,4 +49,4 @@ const admin = () => {
   );
 };
 
-export default admin;
+export default Admin;
