@@ -1,12 +1,12 @@
 "use client"
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
-import Login from './login';
+import Login from './Login';
 import SignUp from './Signup';
 
 
 const AuthForm = () => {
-  const { login } = useAuth()
+  
   const [isLogin, setIsLogin] = useState(true);
 
 

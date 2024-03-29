@@ -17,7 +17,7 @@ const greatvibe = Great_Vibes({
   display: 'swap'
 })
 
-export const metadata = {
+const metadata = {
   title: 'Bakeonn Bakery',
   description: 'Fresh and Tasty',
 }
