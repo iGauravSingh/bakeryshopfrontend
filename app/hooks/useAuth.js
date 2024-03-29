@@ -5,12 +5,15 @@ import { clearUser, setUser } from "../features/userSlice";
 
 const cookie = new Cookie()
 
+const urllocal = "http://localhost:8080";
+const urllive = "https://backerbackend.onrender.com";
+
 const useAuth = () => {
     const dispatch = useDispatch();
 
     const login = async ({ email, password} ) => {
 
-        const response = await axios.post("http://localhost:8080/auth/login", { email, password });
+        const response = await axios.post(`${urllive}/auth/login`, { email, password });
         console.log('from useAuth ', response.data)
         const { user, token } = response.data;
         cookie.set("session_token", token)
@@ -19,7 +22,7 @@ const useAuth = () => {
     }
 
     const signup = async ({email, password, name,address,phoneNumber}) => {
-        const response = await axios.post("http://localhost:8080/auth/signup", {email, password, name, address, phoneNumber})
+        const response = await axios.post(`${urllive}/auth/signup`, {email, password, name, address, phoneNumber})
         console.log('from signup in useAuth',name)
         const {user,token} = response.data;
         cookie.set("session_token", token)
@@ -30,7 +33,7 @@ const useAuth = () => {
     const fetchUser = async () => {
         const sessionToken = cookie.get("session_token")
         try {
-            const response = await axios.get("http://localhost:8080/auth/me", {
+            const response = await axios.get(`${urllive}/auth/me`, {
                 headers: {
                     ...(sessionToken ? {Authorization: `Bearer ${sessionToken}`} : null)
                 }

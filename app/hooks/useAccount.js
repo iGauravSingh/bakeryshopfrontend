@@ -7,7 +7,7 @@ import Cookie from "universal-cookie";
 const cookie = new Cookie();
 
 const urllocal = "http://localhost:8080";
-const urllive = "https://training-institute-backend.onrender.com";
+const urllive = "https://backerbackend.onrender.com";
 
 const initialState = {
   data: null,
@@ -57,7 +57,7 @@ const useAccount = () => {
   const fetchAccountList = async () => {
     dispatch({ type: ActionType.LOADING });
     try {
-      const response = await axios.get(`${urllocal}/users/allusers`);
+      const response = await axios.get(`${urllive}/users/allusers`);
       const EventData = response.data;
       dispatch({ type: ActionType.SUCCESS, payload: EventData });
     } catch (error) {
