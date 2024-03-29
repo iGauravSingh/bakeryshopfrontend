@@ -12,16 +12,31 @@ import CartModal from "./CartModal/CartModal";
 import { useContext, useEffect, useState } from "react";
 import { useShopContext } from "./contexts/ShopContext";
 import { useRouter } from 'next/navigation'
+import { productData } from "./Products/Products";
+import { useSelector } from "react-redux";
 
 
 
 export default function NavBar() {
+
+  const { user, isLoading } = useSelector((state) => state.user.value)
 
   const router = useRouter()
 // cart items 
   const { shop } = useShopContext()
 
   const [menuOpenStatus,setMenuOpenStatus] = useState(false)
+
+  const [searchFunc, setSearchFunc] = useState(false)
+  const [text, setText] = useState('')
+
+  const handleChange = (e) => {
+    setText(e.target.value)
+  }
+
+  const handleSearchCLick = () => {
+    setSearchFunc(true)
+  }
 
 
   return (
@@ -30,7 +45,22 @@ export default function NavBar() {
       <div className="flex justify-between items-center my-auto px-6 md:px-12 h-full">
 
         <div className="bg-red-50 rounded-full p-2 cursor-pointer hidden md:block">
-          <Image src={search} width={40} height={40} alt="search" />
+          {searchFunc ? (
+              <div className=" relative flex gap-1">
+                <Image src={search} width={20} height={15} alt="search" />
+                <input className=" w-24 focus:outline-none" value={text} onChange={handleChange} type="text" />
+                <div className=" absolute top-8 left-4 w-48 "> 
+                  {text && productData.map((product) => (
+                    <div className="" >
+                      <Link href='/'><p>{product.name.toLocaleLowerCase().includes(text) ? (<p className=" flex text-sm justify-between items-center mt-2">{product.name} <button className=" border-2 border-black text-black px-1 py-1">Add To Cart</button></p>) : ''} </p></Link>
+                    </div>
+                      
+                  ))}
+                </div>
+              </div>
+          ) : (
+            <Image onClick={handleSearchCLick} src={search} width={40} height={40} alt="search" />
+          )}
         </div>
 
         <div className="hidden md:block">
@@ -44,15 +74,15 @@ export default function NavBar() {
                 <li className="pt-4 pb-4">Item</li>
               </ul> */}
             </div>
-            <div className="hidden md:block group">
-              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>PAGES</Link>
+            {/* <div className="hidden md:block group">
+              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>PAGES</Link> */}
               {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
                 <li className="pt-10">Item</li>
                 <li className="pt-4">Item</li>
                 <li className="pt-4">Item</li>
                 <li className="pt-4 pb-4">Item</li>
               </ul> */}
-            </div>
+            {/* </div> */}
             <div className="hidden md:block group">
               <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>BLOG</Link>
               {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
@@ -71,8 +101,17 @@ export default function NavBar() {
         </div>
         <div className="hidden md:block">
           <div className="flex md:gap-6">
-          <div className="hidden md:block group">
-              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>PORTFOLIO</Link>
+          {/* <div className="hidden md:block group">
+              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>PORTFOLIO</Link> */}
+              {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
+                <li className="pt-10">Item</li>
+                <li className="pt-4">Item</li>
+                <li className="pt-4">Item</li>
+                <li className="pt-4 pb-4">Item</li>
+              </ul> */}
+            {/* </div> */}
+            <div className="hidden md:block group">
+              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/products'>SHOP</Link>
               {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
                 <li className="pt-10">Item</li>
                 <li className="pt-4">Item</li>
@@ -81,16 +120,15 @@ export default function NavBar() {
               </ul> */}
             </div>
             <div className="hidden md:block group">
-              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>SHOP</Link>
-              {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
-                <li className="pt-10">Item</li>
-                <li className="pt-4">Item</li>
-                <li className="pt-4">Item</li>
-                <li className="pt-4 pb-4">Item</li>
-              </ul> */}
+              {/* <Link className="hover:text-yellow-600 text-lg font-semibold" href='/login'>LOGIN</Link> */}
+              <div>
+              { (user && !isLoading) ? (
+                <Link className="hover:text-yellow-600 text-lg font-semibold" href='/profile'>PROFILE</Link>
+              ) : (
+                <Link className="hover:text-yellow-600 text-lg font-semibold" href='/auth'>LOGIN</Link>
+              )}
+              
             </div>
-            <div className="hidden md:block group">
-              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/'>ELEMENTS</Link>
               {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
                 <li className="pt-10">Item</li>
                 <li className="pt-4">Item</li>

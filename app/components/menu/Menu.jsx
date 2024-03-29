@@ -21,7 +21,7 @@ export default function Menu() {
                 <div className="text-2xl font-medium w-full px-12" key={menu.id}>
                     <div className="md:flex md:justify-between w-full">
                         <h3 className="mb-4 md:mb-2 text-center">{menu.title}</h3>
-                        <p className="text-center mb-8 md:mb-2">${menu.price.toFixed(2)}</p>
+                        <p className="text-center mb-8 md:mb-2">₹{menu.price.toFixed(2)}</p>
                     </div>
                     <p className="hidden md:block mb-8 md:text-sm text-slate-700">{menu.detail}</p>
                 </div>

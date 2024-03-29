@@ -23,7 +23,7 @@ import eight from './8.jpg'
 
 
 
-const productData = [
+export const productData = [
     {id: 1, name: 'BERRILUM',Image: one, price: 10, stars: 5 },
     {id: 2, name: 'ICEBERRY',Image: two, price: 20, stars: 4 },
     {id: 3, name: 'CHOCOLAVA',Image: three, price: 15, stars: 4 },
@@ -78,7 +78,7 @@ export default function Products() {
                         <div className='flex flex-col items-center'>
                             <p className='flex mt-4 tracking-wider'>{starGiver(product.stars)}</p>
                             <p className='mt-2 text-lg font-medium'>{product.name}</p>
-                            <p className='mt-2 mb-6 text-yellow-600'>${product.price}</p>
+                            <p className='mt-2 mb-6 text-yellow-600'>₹{product.price}</p>
                         </div>
                     </div>
                 ))}
