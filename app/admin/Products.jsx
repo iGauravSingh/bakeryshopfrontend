@@ -57,6 +57,9 @@ const Products = () => {
     e.preventDefault();
     addProduct({name,Image,price,star})
   }
+  const handleDelate = (id) => {
+    deleteProduct(id)
+  }
 
   return (
     <>
@@ -91,7 +94,7 @@ const Products = () => {
               {/* <td className="py-4 px-6">
                 {order.orderDetails.join(", ")}
               </td> */}
-              <td className="py-4 px-6">{order.id}</td>
+               <td className="py-4 px-6"><span className=' flex gap-2 items-center'><p onClick={()=>handleDelate(order.id)} className=' text-red-500 text-xl cursor-pointer'>X</p>{order.id}</span></td>
               <td className="py-4 px-6">{order.Image}</td>
               <td className="py-4 px-6">{order.price}</td>
               <td className="py-4 px-6">{order.stars}</td>

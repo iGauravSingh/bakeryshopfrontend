@@ -46,12 +46,12 @@ const Orders = () => {
         <tbody>
           {data?.map((order, index) => (
             <tr key={index} className={`bg-white border-b dark:bg-gray-800 dark:border-gray-700 ${index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800' : 'bg-white dark:bg-gray-700'}`}>
-              <td className="py-4 px-6">{order.OrderId}</td>
+              <td className="py-4 px-6">{order.orderId}</td>
               <td className="py-4 px-6">
                 {order.orderDetails.join(", ")}
               </td>
               <td className="py-4 px-6">{order.orderAmount}</td>
-              <td className="py-4 px-6">{order.orderDeliveryAddress}</td>
+              <td className="py-4 px-6">{order.address}</td>
               <td className="py-4 px-6">{order.customerId}</td>
             </tr>
           ))}
