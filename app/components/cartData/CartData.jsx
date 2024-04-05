@@ -15,9 +15,13 @@ export default function CartData() {
   // Calculate total amount
   
   
-    const {shop} = useContext(ShopContext)
+    const {shop,setShop} = useContext(ShopContext)
 
     const totalAmount = shop.reduce((acc, item) => acc + (item.price  * 100) /100, 0);
+
+    const handleremoveitem = (id) => {
+      setShop(shop.filter((item)=> item.id !== id ))
+    }
 
     return (
         <div className='text-2xl px-4 md:px-[20rem] font-mono'>
@@ -32,6 +36,7 @@ export default function CartData() {
                   <div className='flex gap-4 mb-4 items-center justify-between' key={item.id}>
                     <p>{item.name}</p>
                     <p className='font-medium'>₹ {item.price}</p>
+                    <p onClick={()=>handleremoveitem(item.id)} className=' text-red-500 border-2 border-red-600 px-2 py-1 cursor-pointer'>Remove</p>
                   </div>
                 ))}
     

@@ -57,7 +57,7 @@ const useAccount = () => {
   const fetchAccountList = async () => {
     dispatch({ type: ActionType.LOADING });
     try {
-      const response = await axios.get(`${urllive}/users/allusers`);
+      const response = await axios.get(`${urllocal}/users/allusers`);
       const EventData = response.data;
       dispatch({ type: ActionType.SUCCESS, payload: EventData });
     } catch (error) {

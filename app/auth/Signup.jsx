@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 const SignUp = () => {
 
+  const router = useRouter()
   const { signup } = useAuth()
   const [formData, setFormData] = useState({
     name: '',
@@ -26,6 +28,7 @@ const SignUp = () => {
     console.log('Signup Submitted with:', formData);
     await signup(formData)
     // Clear form or navigate the user elsewhere after successful signup
+    router.push('/');
   };
 
   return (

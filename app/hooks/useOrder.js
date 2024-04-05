@@ -57,7 +57,7 @@ const useOrder = () => {
   const fetchOrderList = async () => {
     dispatch({ type: ActionType.LOADING });
     try {
-      const response = await axios.get(`${urllive}/orders/allorders`);
+      const response = await axios.get(`${urllocal}/orders/allorders`);
       const EventData = response.data;
       dispatch({ type: ActionType.SUCCESS, payload: EventData });
     } catch (error) {
@@ -71,7 +71,7 @@ const useOrder = () => {
   const addOrder = async (data) => {
     try {
       console.log('i am in useOrder and addOrder');
-      const response = await axios.post(`${urllive}/orders/add`, data, {
+      const response = await axios.post(`${urllocal}/orders/add`, data, {
         headers: {
           ...(sessionToken ? { Authorization: `Bearer ${sessionToken}` } : null),
         },
@@ -85,7 +85,7 @@ const useOrder = () => {
 
   const deleteOrder = async (data) => {
     try {
-      const response = await axios.delete(`${urllive}/${data}`, {
+      const response = await axios.delete(`${urllocal}/${data}`, {
         headers: {
           ...(sessionToken ? { Authorization: `Bearer ${sessionToken}` } : null),
         },

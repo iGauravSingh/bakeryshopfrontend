@@ -57,7 +57,7 @@ const useProduct = () => {
   const fetchProductList = async () => {
     dispatch({ type: ActionType.LOADING });
     try {
-      const response = await axios.get(`${urllive}/products/getall`);
+      const response = await axios.get(`${urllocal}/products/getall`);
       const EventData = response.data;
       dispatch({ type: ActionType.SUCCESS, payload: EventData });
     } catch (error) {
@@ -71,7 +71,7 @@ const useProduct = () => {
   const addProduct = async (data) => {
     try {
       console.log('i am in useOrder and addOrder');
-      const response = await axios.post(`${urllive}/products/addproduct`, data);
+      const response = await axios.post(`${urllocal}/products/addproduct`, data);
       const addproductData = response.data;
       return addproductData
     } catch (error) {
@@ -81,7 +81,7 @@ const useProduct = () => {
 
   const deleteProduct = async (data) => {
     try {
-      const response = await axios.delete(`${urllive}/products/deleteproduct/${data}`);
+      const response = await axios.delete(`${urllocal}/products/deleteproduct/${data}`);
       const deleteProductData = response.data;
       console.log('response i get after sending post request', deleteProductData);
     } catch (error) {

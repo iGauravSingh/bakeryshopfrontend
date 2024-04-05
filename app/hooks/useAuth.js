@@ -13,27 +13,35 @@ const useAuth = () => {
 
     const login = async ({ email, password} ) => {
 
-        const response = await axios.post(`${urllive}/auth/login`, { email, password });
+       try {
+        const response = await axios.post(`${urllocal}/auth/login`, { email, password });
         console.log('from useAuth ', response.data)
         const { user, token } = response.data;
         cookie.set("session_token", token)
         dispatch(setUser({email: user.email, username: user.username, address: user.address, phoneNumber: user.phoneNumber}))
         return response.data
+       } catch (error) {
+        console.error('error in login',error)
+       }
     }
 
     const signup = async ({email, password, name,address,phoneNumber}) => {
-        const response = await axios.post(`${urllive}/auth/signup`, {email, password, name, address, phoneNumber})
+        try {
+            const response = await axios.post(`${urllocal}/auth/signup`, {email, password, name, address, phoneNumber})
         console.log('from signup in useAuth',name)
         const {user,token} = response.data;
         cookie.set("session_token", token)
         dispatch(setUser({email: user.email, username: user.username}))
         return response.data;
+        } catch (error) {
+            console.error('error in sign up',error)
+        }
     }
 
     const fetchUser = async () => {
         const sessionToken = cookie.get("session_token")
         try {
-            const response = await axios.get(`${urllive}/auth/me`, {
+            const response = await axios.get(`${urllocal}/auth/me`, {
                 headers: {
                     ...(sessionToken ? {Authorization: `Bearer ${sessionToken}`} : null)
                 }

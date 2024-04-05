@@ -92,6 +92,15 @@ export default function NavBar() {
                 <li className="pt-4 pb-4">Item</li>
               </ul> */}
             </div>
+            <div className="hidden md:block group">
+              <Link className="hover:text-yellow-600 text-lg font-semibold" href='/feedback'>FEEDBACK</Link>
+              {/* <ul className="absolute hidden group-hover:block w-[10rem] text-left pl-4 cursor-pointer bg-white">
+                <li className="pt-10">Item</li>
+                <li className="pt-4">Item</li>
+                <li className="pt-4">Item</li>
+                <li className="pt-4 pb-4">Item</li>
+              </ul> */}
+            </div>
           </div>
         </div>
 

@@ -24,14 +24,14 @@ import eight from './8.jpg'
 
 
 export const productData = [
-    {id: 1, name: 'BERRILUM',Image: one, price: 10, stars: 5 },
-    {id: 2, name: 'ICEBERRY',Image: two, price: 20, stars: 4 },
-    {id: 3, name: 'CHOCOLAVA',Image: three, price: 15, stars: 4 },
-    {id: 4, name: 'HEART SHARDS',Image: four, price: 8, stars: 3 },
-    {id: 5, name: 'MILKY WAY',Image: five, price: 20, stars: 4 },
-    {id: 6, name: 'CELEBRATION',Image: six, price: 12, stars: 5 },
-    {id: 7, name: 'GREEN GARDEN',Image: seven, price: 14, stars: 5 },
-    {id: 8, name: 'CREAM DOME',Image: eight, price: 25, stars: 4 },
+    {id: 13321, name: 'BERRILUM',Image: one, price: 10, stars: 5 },
+    {id: 345452, name: 'ICEBERRY',Image: two, price: 20, stars: 4 },
+    {id: 345453, name: 'CHOCOLAVA',Image: three, price: 15, stars: 4 },
+    {id: 446676, name: 'HEART SHARDS',Image: four, price: 8, stars: 3 },
+    {id: 5787, name: 'MILKY WAY',Image: five, price: 20, stars: 4 },
+    {id: 6898, name: 'CELEBRATION',Image: six, price: 12, stars: 5 },
+    {id: 789676, name: 'GREEN GARDEN',Image: seven, price: 14, stars: 5 },
+    {id: 8675, name: 'CREAM DOME',Image: eight, price: 25, stars: 4 },
 ]
 
 

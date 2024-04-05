@@ -26,6 +26,41 @@ const Admin = () => {
     setSelectedPage('accounts')
   }
 
+    // State to hold whether the user is authenticated
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    // State to hold the user's password input
+    const [password, setPassword] = useState('');
+  
+    // The hard-coded password (note: this is not secure)
+    const correctPassword = 'mypassword';
+  
+    // Function to check the password
+    const checkPassword = () => {
+      if (password === correctPassword) {
+        setIsAuthenticated(true);
+      } else {
+        alert('Incorrect password!');
+      }
+    };
+
+      // Render the password input form if the user is not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className=" flex flex-col font-serif items-center justify-center mt-14 gap-6">
+        <label htmlFor="password">Admin Password</label>
+        <input
+          className=" border-2 px-2 py-2"
+          id="password"
+          type="password"
+          value={password}
+          placeholder="Please Enter Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className=" border-2 border-black text-black px-4 py-2 rounded-lg" onClick={checkPassword}>Enter</button>
+      </div>
+    );
+  }
+
   return (
     <div className=" min-h-screen flex font-serif">
       {/* side left panel  */}

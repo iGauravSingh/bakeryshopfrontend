@@ -26,14 +26,14 @@ import useProduct from '../hooks/useProduct';
 
 
 export const productData = [
-    {id: 1, name: 'BERRILUM',Image: one, price: 10, stars: 5 },
-    {id: 2, name: 'ICEBERRY',Image: two, price: 20, stars: 4 },
-    {id: 3, name: 'CHOCOLAVA',Image: three, price: 15, stars: 4 },
-    {id: 4, name: 'HEART SHARDS',Image: four, price: 8, stars: 3 },
-    {id: 5, name: 'MILKY WAY',Image: five, price: 20, stars: 4 },
-    {id: 6, name: 'CELEBRATION',Image: six, price: 12, stars: 5 },
-    {id: 7, name: 'GREEN GARDEN',Image: seven, price: 14, stars: 5 },
-    {id: 8, name: 'CREAM DOME',Image: eight, price: 25, stars: 4 },
+    {id: 12121, name: 'BERRILUM',Image: one, price: 10, stars: 5 },
+    {id: 12132, name: 'ICEBERRY',Image: two, price: 20, stars: 4 },
+    {id: 2323, name: 'CHOCOLAVA',Image: three, price: 15, stars: 4 },
+    {id: 23234, name: 'HEART SHARDS',Image: four, price: 8, stars: 3 },
+    {id: 35345, name: 'MILKY WAY',Image: five, price: 20, stars: 4 },
+    {id: 4564546, name: 'CELEBRATION',Image: six, price: 12, stars: 5 },
+    {id: 57567, name: 'GREEN GARDEN',Image: seven, price: 14, stars: 5 },
+    {id: 676768, name: 'CREAM DOME',Image: eight, price: 25, stars: 4 },
 ]
 const page = () => {
 
@@ -56,6 +56,12 @@ const page = () => {
         //console.log(shop)
       }
 
+      const handleClickServerData =(id)=> {
+        const odrdata = data?.find(prod=> prod.id === id) 
+        setShop(prev=> [...prev,odrdata])
+        //console.log(shop)
+      }
+
   return (
     <div className='px-8 mt-12'>
         <div className='font-title flex flex-col justify-center items-center'>
@@ -74,7 +80,7 @@ const page = () => {
                                 {shop.find(ii=> ii.id ===product.id) ? 
                                 <p className='text-sm tracking-wide' onClick={()=> router.push('/cart')}>VIEW CART</p> 
                                 : 
-                                <p className='text-sm tracking-wide' onClick={()=>handleClick(product.id)}>ADD TO CART</p>}
+                                <p className='text-sm tracking-wide' onClick={()=>handleClickServerData(product.id)}>ADD TO CART</p>}
                                 
                             </div>
                         </div>
